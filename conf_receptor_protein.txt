@@ -1,0 +1,16 @@
+receptor= 
+ligand= 
+ 
+center_x= 1.236
+center_y= -5.052
+center_z= -1.421
+
+size_x= 126
+size_y= 116
+size_z= 126
+
+out= 
+
+exhaustiveness= 8
+
+spacing= 0.475
