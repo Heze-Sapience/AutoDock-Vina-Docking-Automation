@@ -7,7 +7,7 @@ This repository automates molecular docking using **AutoDock Vina**, supporting 
 * Single-GPU Parallel
 * Multi-GPU Parallel
 
-It automatically generates configuration files with **space after `=`** for each receptor–ligand pair, logs output, and summarizes results in a CSV.
+It automatically generates configuration files with **space after `=`** for each receptorâ€“ligand pair, logs output, and summarizes results in a CSV.
 
 ---
 
@@ -17,15 +17,23 @@ It automatically generates configuration files with **space after `=`** for each
 * Maintains all original parameters (center, size, exhaustiveness).
 * Supports sequential, CPU-parallel, single-GPU, and multi-GPU execution.
 * Logs stdout/stderr separately for each docking.
-* Summary CSV with status for all receptor–ligand pairs.
+* Summary CSV with status for all receptorâ€“ligand pairs.
 
 ---
+## Required installation
+Linux:
+Install vina into your base using the following command.
+sudo apt install autodock-vina
 
+Windows:
+Download Miniconda app and install it. Run the script on the Miniconda prompt
+
+---
 ## Directory Structure
 
 ```
 project/
-¦
+Â¦
 +-- receptor_*.pdbqt         # Receptor files
 +-- lig_*.pdbqt              # Ligand files
 +-- conf_receptor_*.txt      # Base config placeholders
@@ -58,6 +66,8 @@ size_y= 126
 size_z= 126
 
 exhaustiveness= 8
+
+spacing= 0.5
 ```
 
 * Script fills in `receptor=`, `ligand=`, and `out=` automatically.
@@ -100,7 +110,7 @@ python vina_parallel_cpu.py
 ```
 
 * Uses multiple **CPU threads** to run dockings in parallel.
-* Assigns multiple receptor–ligand pairs to different threads.
+* Assigns multiple receptorâ€“ligand pairs to different threads.
 * Suitable for high-spec CPUs without GPU.
 * Logs and outputs same as sequential version.
 
@@ -112,7 +122,7 @@ python vina_parallel_cpu.py
 python vina_single_gpu.py
 ```
 
-* Runs multiple receptor–ligand pairs concurrently on **one GPU**.
+* Runs multiple receptorâ€“ligand pairs concurrently on **one GPU**.
 * Each pair gets its own config file in `generated_conf/`.
 * Logs stdout/stderr separately; outputs in `docking_results/`.
 
